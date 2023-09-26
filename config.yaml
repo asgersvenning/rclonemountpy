@@ -1,0 +1,22 @@
+# Mounting configuration
+mount: {
+  # Remote configuration
+  remote: "YOUR_REMOTE", # Name of the remote defined in .ssh/config
+  remote_subdir: "", # Subdirectory of the remote to mount (leave empty to mount the root of the remote)
+  local: "mount_directory", # Name of the local directory to mount the remote to (must not exist!!)
+
+  # Rclone mount configuration
+  # All rclone mount configuration options can be found in https://rclone.org/commands/rclone_mount/
+  # OBS: These are merely the options I am currently using
+  rclone: {
+    vfs-cache-mode: "full", 
+    vfs-read-chunk-size: "1M",
+    vfs-cache-max-age: "10h",
+    vfs-cache-max-size: "500G", # This is the maximum size of the cache (must fit in the memory of the machine you are running this on)
+    max-read-ahead: "1M",
+    dir-cache-time: "15m",
+    fast-list: true,
+    transfers: 10,
+    daemon: true # This is required for the rclone mount to work
+  }
+}
