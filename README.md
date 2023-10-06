@@ -1,6 +1,13 @@
 # rclonemountpy
 This repository contains code for mounting and unmounting a remote with rclone and ssh.
 
+**OBS**: Be aware that this script only works if you have set up SSH properly, and activated the `ssh-agent`. Please verify that you are able to connect to your remote before using the script (nothing bad will happen if you don't, it just won't work).
+
+**TODO**: 
+* Properly package this as a module, to massively decrease user friction.
+* Test if it is possible to use the `RCLONE` `sftp-key-file` and `sftp-key-use-agent` arguments to remove the need for the `ssh-agent`.
+* Create better default `RCLONE` options.
+
 ## Usage
 Since this is not packaged as a proper module, it is a bit tricky to import it. There are two options:
 
